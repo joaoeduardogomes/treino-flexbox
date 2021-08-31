@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*CABEÇALHO*/
 .cabecalhoPrincipal .container {
     display: flex;
     align-items: center;
@@ -7,5 +8,35 @@
 }
 
 .cabecalhoPrincipal-nav {
+    display: flex;
+}
+
+
+/*RODAPÉ*/
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+}
+
+.rodapePrincipal-patrocinadores .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70vw;
+    margin-right: 5vw;
+}
+
+.rodapePrincipal-contatoForm {
+    width: 25vw;
+}
+
+.rodapePrincipal-contatoForm-fieldset {
     display: flex;
 }
