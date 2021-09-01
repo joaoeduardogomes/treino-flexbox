@@ -11,12 +11,35 @@
     display: flex;
 }
 
+/*MAIN*/
+.conteudoPrincipal-cursos {
+    display: flex; /*Isto fex todos os li(link) ficarem grudados*/
+    flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos-link {
+    width: 23%; /*Isto desgrudou os li(link). Nem sempre vw é uma boa, aqui em vw são 18.*/
+    justify-content: space-between; /*desgruda as caixas dos li horizontalmente*/
+    /*margin: 1%; -> ou também podemos usar margem*/
+    margin-bottom: 1%;
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+    /*Esta configuração vai ser aplicada de 4 em 4 itens (4n), porque a quarta coluna não deve ter margem à direita neste caso.*/
+    margin-right: 0;
+}
+
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+    /*Esta configuração também é de 4 em 4 itens, mas pegando a primeira coluna. O primeiro n é 0, portanto vai começando em 1, depois 5, depois 9 etc.*/
+    margin-left: 0;
+}
 
 /*RODAPÉ*/
 .rodapePrincipal-navMap-list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    /*flex-flow: column wrap (atalho pras duas propriedades de cima)*/
     height: 250px;
 }
 
@@ -39,4 +62,56 @@
 
 .rodapePrincipal-contatoForm-fieldset {
     display: flex;
+}
+
+/*MOBILE*/
+@media(max-width: 768px){
+    .cabecalhoPrincipal .container {
+        flex-direction: column;
+        align-items: initial;
+        text-align: center;
+    }
+
+    .cabecalhoPrincipal-nav {
+        flex-direction: column;
+    }
+
+    .cabecalhoPrincipal-nav-link-app {
+        order: -1; /*Isto vai fazer a opção "Nosso APP" do cabeçalho ficar no topo. O padrão é 0, então usa-se "-1" para a opção que se quer em primeiro.*/
+    }
+
+    .conteudoPrincipal-cursos {
+        flex-direction: column;
+    }
+
+    .conteudoPrincipal-cursos-link {
+        width: 100%;
+    }
+
+    .rodapePrincipal-navMap-list {
+        height: auto;
+    }
+
+    .rodapePrincipal-patrocinadores .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rodapePrincipal-patrocinadores-list{
+        margin: 0;
+        width: 100%;
+        flex-direction: column; /*alteração minha*/
+    }
+
+    .rodapePrincipal-patrocinadores-list li { /*alteração minha*/
+        margin-bottom: 1.5vh; /*alteração minha*/
+    }
+
+    .rodapePrincipal-contatoForm {
+        width: 100%;
+    }
+
+    .rodapePrincipal-contatoForm-fieldset {
+        justify-content: center;
+    }
 }
